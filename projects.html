@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Projects | MyGeovision</title>
+
+    <meta
+        name="description"
+        content="Explore MyGeovision geospatial projects across Kenya through an interactive project map."
+    >
+
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- =====================================================
+         FONT AWESOME
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- =====================================================
+         LEAFLET
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        crossorigin=""
+    >
+
+    <!-- =====================================================
+         PROJECT PAGE CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="projects.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     PAGE
+========================================================= -->
+
+<div class="projects-page">
+
+
+    <!-- =====================================================
+         HEADER / NAVIGATION
+    ====================================================== -->
+
+    <header class="projects-navbar">
+
+        <!-- BRAND -->
+
+        <a
+            href="index.html"
+            class="projects-brand"
+            aria-label="MyGeovision Home"
+        >
+
+            <img
+                src="Images/MyGeovision_Logo-removebg-preview.png"
+                alt="MyGeovision"
+            >
+
+        </a>
+
+
+        <!-- DESKTOP NAVIGATION -->
+
+        <nav
+            class="projects-nav"
+            aria-label="Main navigation"
+        >
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="services.html">
+                Services
+            </a>
+
+            <a
+                href="projects.html"
+                class="active"
+            >
+                Projects
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="contacts.html">
+                Contact
+            </a>
+
+        </nav>
+
+
+        <!-- MOBILE MENU BUTTON -->
+
+        <button
+            class="projects-menu-button"
+            id="projectsMenuButton"
+            aria-label="Open navigation"
+            aria-expanded="false"
+        >
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </header>
+
+
+    <!-- =====================================================
+         MOBILE NAVIGATION
+    ====================================================== -->
+
+    <nav
+        class="projects-mobile-menu"
+        id="projectsMobileMenu"
+    >
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="services.html">
+            Services
+        </a>
+
+        <a
+            href="projects.html"
+            class="active"
+        >
+            Projects
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="contacts.html">
+            Contact
+        </a>
+
+    </nav>
+
+
+    <!-- =====================================================
+         PROJECT HERO
+    ====================================================== -->
+
+    <main>
+
+
+        <section class="projects-hero">
+
+
+            <!-- BACKGROUND VIDEO -->
+
+            <video
+                class="projects-hero-video"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+                aria-hidden="true"
+            >
+                <source
+                    src="Video/Services Backgound.mp4"
+                    type="video/mp4"
+                >
+            </video>
+
+            <div class="projects-hero-overlay"></div>
+
+
+            <!-- HERO CONTENT -->
+
+            <div class="projects-hero-content">
+
+
+                <div class="projects-section-label">
+
+                    <!-- <span></span> -->
+
+                    MYGEOVISION / PROJECTS
+
+                </div>
+
+
+                <h1>
+
+                    Mapping ideas.
+                    <span>Transforming places.</span>
+
+                </h1>
+
+
+                <p>
+
+                    Explore our geospatial work across Kenya through
+                    an interactive map of projects, locations and
+                    geographic areas where MyGeovision has worked.
+
+                </p>
+
+
+                <!-- STATISTICS -->
+
+                <div class="project-statistics">
+
+
+                    <div class="project-stat">
+
+                        <div
+                            class="project-stat-number"
+                            id="totalProjects"
+                        >
+                            —
+                        </div>
+
+                        <div class="project-stat-label">
+                            PROJECTS
+                        </div>
+
+                    </div>
+
+
+                    <div class="project-stat-divider"></div>
+
+
+                    <div class="project-stat">
+
+                        <div
+                            class="project-stat-number"
+                            id="mappedLocations"
+                        >
+                            —
+                        </div>
+
+                        <div class="project-stat-label">
+                            LOCATIONS
+                        </div>
+
+                    </div>
+
+
+                    <div class="project-stat-divider"></div>
+
+
+                    <div class="project-stat">
+
+                        <div
+                            class="project-stat-number"
+                            id="mappedCounties"
+                        >
+                            —
+                        </div>
+
+                        <div class="project-stat-label">
+                            COUNTIES
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PROJECT MAP SECTION
+        ================================================== -->
+
+        <section class="project-map-section">
+
+
+            <div class="project-map-header">
+
+
+                <div class="project-map-title">
+
+
+                    <div class="project-map-number">
+                        
+                    </div>
+
+
+                    <div>
+
+                        <span class="project-small-label">
+                            PROJECT LOCATIONS
+                        </span>
+
+                        <h2>
+                            Our work
+                            <span>across Kenya.</span>
+                        </h2>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="project-map-description">
+
+                    <p>
+
+                        Explore the geographic distribution of
+                        MyGeovision projects across Kenya.
+                        Select any project point to view its
+                        title and location.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MAP -->
+
+            <div class="project-map-wrapper">
+
+
+                <div
+                    id="projectsMap"
+                    class="projects-map"
+                ></div>
+
+
+                <!-- MAP STATUS -->
+
+                <div
+                    class="map-loading"
+                    id="mapLoading"
+                >
+
+                    <div class="map-loading-spinner"></div>
+
+                    <span>
+                        Loading project locations...
+                    </span>
+
+                </div>
+
+
+                <!-- MAP LEGEND -->
+
+                <div class="project-map-legend">
+
+
+                    <div class="legend-item">
+
+                        <span class="legend-point"></span>
+
+                        <span>
+                            MyGeovision Project
+                        </span>
+
+                    </div>
+
+
+                    <div class="legend-item">
+
+                        <span class="legend-boundary"></span>
+
+                        <span>
+                            County Boundary
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- PROJECT COUNT -->
+
+                <div class="map-project-count">
+
+                    <span id="mapProjectCount">
+                        0
+                    </span>
+
+                    PROJECTS MAPPED
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             PROJECT EXPLORATION
+        ================================================== -->
+
+        <section class="project-explore-section">
+
+
+            <div class="project-explore-inner">
+
+
+                <div class="project-explore-heading">
+
+
+                    <span class="project-small-label">
+                        EXPLORE OUR WORK
+                    </span>
+
+
+                    <h2>
+
+                        From field data
+                        <span>to geospatial intelligence.</span>
+
+                    </h2>
+
+
+                    <p>
+
+                        Our projects bring together GIS,
+                        remote sensing, surveying, field data,
+                        spatial analysis and geospatial
+                        visualization to solve real-world
+                        problems.
+
+                    </p>
+
+                </div>
+
+
+                <div class="project-explore-action">
+
+
+                    <a
+                        href="https://drive.google.com/drive/folders/1KcgWwc0zPRvFWm-Dbp0L3TeyjYFtkLOY?usp=sharing"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="project-drive-button"
+                    >
+
+                        <span>
+                            Explore project portfolio
+                        </span>
+
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                    </a>
+
+
+                    <span class="project-action-note">
+
+                        View project materials
+
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PROJECT PROCESS
+        ================================================== -->
+
+        <!-- <section class="project-process-section">
+
+
+            <div class="project-process-header">
+
+
+                <span class="project-small-label">
+                    HOW WE WORK
+                </span>
+
+
+                <h2>
+
+                    Every project begins
+                    <span>with a location.</span>
+
+                </h2>
+
+            </div>
+
+
+            <div class="project-process-grid">
+
+
+                <div class="project-process-card">
+
+                    <span class="process-number">
+                        01
+                    </span>
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <h3>
+                        Understand
+                    </h3>
+
+                    <p>
+                        We understand the location,
+                        landscape and spatial problem
+                        before designing the solution.
+                    </p>
+
+                </div>
+
+
+                <div class="project-process-card">
+
+                    <span class="process-number">
+                        02
+                    </span>
+
+                    <i class="fa-solid fa-layer-group"></i>
+
+                    <h3>
+                        Analyse
+                    </h3>
+
+                    <p>
+                        GIS, satellite imagery, field
+                        observations and spatial data
+                        are brought together.
+                    </p>
+
+                </div>
+
+
+                <div class="project-process-card">
+
+                    <span class="process-number">
+                        03
+                    </span>
+
+                    <i class="fa-solid fa-chart-area"></i>
+
+                    <h3>
+                        Visualise
+                    </h3>
+
+                    <p>
+                        Complex spatial information is
+                        transformed into clear maps,
+                        analysis and intelligence.
+                    </p>
+
+                </div>
+
+
+                <div class="project-process-card">
+
+                    <span class="process-number">
+                        04
+                    </span>
+
+                    <i class="fa-solid fa-compass-drafting"></i>
+
+                    <h3>
+                        Deliver
+                    </h3>
+
+                    <p>
+                        We provide practical geospatial
+                        outputs that support better
+                        decisions.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>  -->
+
+
+    </main>
+
+
+
+    <!-- =========================================================
+     FOOTER
+========================================================== -->
+
+<footer class="footer">
+
+
+    <div class="footer-container">
+
+
+        <!-- =================================================
+             FOOTER BRAND
+        ================================================== -->
+
+        <div class="footer-section footer-brand">
+
+
+            <a
+                href="index.html"
+                class="footer-logo-link"
+            >
+
+                <img
+                    src="Images/MyGeovision_Logo-removebg-preview.png"
+                    alt="MyGeovision"
+                    class="footer-logo"
+                >
+
+            </a>
+
+
+            <p class="footer-tagline">
+                Seeing the World Differently
+            </p>
+
+
+            <p class="footer-copyright">
+                © 2026 MyGeovision. All rights reserved.
+            </p>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             QUICK LINKS
+        ================================================== -->
+
+        <div class="footer-section">
+
+
+            <h3>
+                Quick Links
+            </h3>
+
+
+            <ul class="footer-links">
+
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="services.html">
+                        Services
+                    </a>
+                </li>
+
+                <li>
+                    <a href="projects.html">
+                        Projects
+                    </a>
+                </li>
+
+                <li>
+                    <a href="about.html">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contact.html">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             CONTACT
+        ================================================== -->
+
+        <div class="footer-section">
+
+
+            <h3>
+                Contact Us
+            </h3>
+
+
+            <div class="footer-socials">
+
+
+                <a
+                    href="https://www.facebook.com/profile.php?id=100085487375856"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer-social facebook"
+                    aria-label="Facebook"
+                >
+
+                    <i class="fa-brands fa-facebook-f"></i>
+
+                </a>
+
+
+                <a
+                    href="https://github.com/James-Munga"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer-social github"
+                    aria-label="GitHub"
+                >
+
+                    <i class="fa-brands fa-github"></i>
+
+                </a>
+
+
+                <a
+                    href="https://www.linkedin.com/in/james-kimani-4a7207312"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer-social linkedin"
+                    aria-label="LinkedIn"
+                >
+
+                    <i class="fa-brands fa-linkedin-in"></i>
+
+                </a>
+
+
+                <a
+                    href="https://www.youtube.com/@JamesKimani-w2r"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer-social youtube"
+                    aria-label="YouTube"
+                >
+
+                    <i class="fa-brands fa-youtube"></i>
+
+                </a>
+
+
+                <a
+                    href="https://x.com/keymani623659"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer-social twitter"
+                    aria-label="X"
+                >
+
+                    <i class="fa-brands fa-x-twitter"></i>
+
+                </a>
+
+
+            </div>
+
+
+            <a
+                href="tel:+254703129783"
+                class="footer-contact-line"
+            >
+
+                <i class="fa-solid fa-phone"></i>
+
+                <span>
+                    +254 703 129 783
+                </span>
+
+            </a>
+
+
+            <a
+                href="mailto:2621kimanimunga@gmail.com"
+                class="footer-contact-line"
+            >
+
+                <i class="fa-solid fa-envelope"></i>
+
+                <span>
+                    2621kimanimunga@gmail.com
+                </span>
+
+            </a>
+
+
+            <div class="footer-contact-line">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <span>
+                    Nairobi, Kenya
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             NEWSLETTER
+        ================================================== -->
+
+        <div class="footer-section newsletter">
+
+
+            <h3>
+                Subscribe to our newsletter
+            </h3>
+
+
+            <p>
+
+                Get the latest updates, GIS insights,
+                projects and geospatial news directly
+                in your inbox.
+
+            </p>
+
+
+            <form
+                class="newsletter-form"
+                id="newsletterForm"
+            >
+
+                <input
+                    type="email"
+                    id="newsletterEmail"
+                    placeholder="Your email address"
+                    required
+                >
+
+
+                <button
+                    type="submit"
+                    id="newsletterButton"
+                >
+
+                    Subscribe
+
+                </button>
+
+            </form>
+
+
+            <div
+                class="newsletter-message"
+                id="newsletterMessage"
+            >
+
+                Thank you for subscribing!
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</footer>
+
+
+
+</div>
+
+
+<!-- =========================================================
+     LEAFLET JS
+========================================================= -->
+
+<script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    crossorigin=""
+></script>
+
+
+<!-- =========================================================
+     PROJECT JAVASCRIPT
+========================================================= -->
+
+<script src="projects.js"></script>
+
+
+</body>
+
+</html>
